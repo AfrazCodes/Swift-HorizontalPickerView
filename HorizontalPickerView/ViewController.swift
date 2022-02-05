@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         // setup view
         view.backgroundColor = .systemBackground
         picker.datasource = self
+        picker.delegate = self
         view.addSubview(picker)
     }
 
@@ -69,5 +70,13 @@ extension ViewController: HorizontalPickerViewDatasource {
             .kern: NSNumber(value: 3),
             .paragraphStyle: style
         ])
+    }
+}
+
+// MARK: - HorizontalPickerViewDelegate
+
+extension ViewController: HorizontalPickerViewDelegate {
+    func horizontalPickerView(_ picker: HorizontalPickerView, selectedItemDidChangeTo indexPath: IndexPath) {
+        print("Selected item: \(indexPath.row) in row: \(indexPath.section)")
     }
 }

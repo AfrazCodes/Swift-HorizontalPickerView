@@ -17,6 +17,7 @@
 		835E843427AED27A000326DD /* HorizontalPickerViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E843327AED27A000326DD /* HorizontalPickerViewDatasource.swift */; };
 		835E843627AED464000326DD /* HorizontalPickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E843527AED464000326DD /* HorizontalPickerViewCell.swift */; };
 		835E843827AED65E000326DD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E843727AED65E000326DD /* Extensions.swift */; };
+		835E843A27AEF067000326DD /* HorizontalPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E843927AEF067000326DD /* HorizontalPickerViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		835E843327AED27A000326DD /* HorizontalPickerViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPickerViewDatasource.swift; sourceTree = "<group>"; };
 		835E843527AED464000326DD /* HorizontalPickerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPickerViewCell.swift; sourceTree = "<group>"; };
 		835E843727AED65E000326DD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		835E843927AEF067000326DD /* HorizontalPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPickerViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				835E843027AED1C0000326DD /* HorizontalPickerView.swift */,
 				835E843327AED27A000326DD /* HorizontalPickerViewDatasource.swift */,
 				835E843527AED464000326DD /* HorizontalPickerViewCell.swift */,
+				835E843927AEF067000326DD /* HorizontalPickerViewDelegate.swift */,
 			);
 			path = HorizontalPickerView;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				835E841C27AED1A7000326DD /* AppDelegate.swift in Sources */,
 				835E841E27AED1A7000326DD /* SceneDelegate.swift in Sources */,
 				835E843427AED27A000326DD /* HorizontalPickerViewDatasource.swift in Sources */,
+				835E843A27AEF067000326DD /* HorizontalPickerViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

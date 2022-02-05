@@ -19,12 +19,18 @@ final class HorizontalPickerView: UIView {
         }
     }
 
+    /// Delegate instance
+    weak var delegate: HorizontalPickerViewDelegate?
+
+    /// Debounce timer
     private var timer: Timer?
 
+    /// Highlighted indices
     private var highlightedIndices: Set<IndexPath> = []
 
     // MARK: - Subviews
 
+    /// Primary view
     private var collectionView: UICollectionView?
 
     // MARK: - Init
@@ -142,13 +148,7 @@ extension HorizontalPickerView: UICollectionViewDataSource, UICollectionViewDele
         timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { [weak self] _ in
             guard let strongSelf = self else { return }
 
-            for item in strongSelf.highlightedIndices {
-                let cell = strongSelf.collectionView?.cellForItem(at: item) as? HorizontalPickerViewCell
-                cell?.configure(
-                    with: strongSelf.datasource?.horizontalPickerView(strongSelf, attributedTitleAt: item),
-                    isSelected: false
-                )
-            }
+            strongSelf.cleanupSelection()
 
             let rowCount = strongSelf.datasource?.numberOfRows() ?? 0
             for i in 0..<rowCount {
@@ -157,6 +157,7 @@ extension HorizontalPickerView: UICollectionViewDataSource, UICollectionViewDele
 
                 if !strongSelf.highlightedIndices.contains(indexPath) {
                     strongSelf.highlightedIndices.insert(indexPath)
+                    strongSelf.delegate?.horizontalPickerView(strongSelf, selectedItemDidChangeTo: indexPath)
                 }
 
                 cell?.configure(
@@ -165,6 +166,18 @@ extension HorizontalPickerView: UICollectionViewDataSource, UICollectionViewDele
                 )
             }
         }
+    }
+
+    /// Cleans up prior highlighted selection
+    private func cleanupSelection() {
+        for item in highlightedIndices {
+            let cell = collectionView?.cellForItem(at: item) as? HorizontalPickerViewCell
+            cell?.configure(
+                with: datasource?.horizontalPickerView(self, attributedTitleAt: item),
+                isSelected: false
+            )
+        }
+        highlightedIndices.removeAll()
     }
 
     /// Get indexPaths that should be selected for picker UX
