@@ -32,3 +32,5 @@ func horizontalPickerView(
 ) -> NSAttributedString?
 
 ```
+Image
+![image](example.png)
